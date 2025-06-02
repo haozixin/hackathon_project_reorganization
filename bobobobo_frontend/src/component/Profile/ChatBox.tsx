@@ -8,6 +8,10 @@ interface MessageProps {
   id: number;
 }
 
+interface MockChatResponseData {
+    response: string;
+}
+
 const ChatBox: React.FC = () => {
   const [messages, setMessages] = useState<MessageProps[]>([]);
   const [input, setInput] = useState<string>('');
@@ -16,14 +20,20 @@ const ChatBox: React.FC = () => {
   const sendMessage = async () => { // 注意 async 关键字
     try {
       console.log("bobobooboboboobobobo")
-      const response = await askgpt(input); // 使用 input 而不是 message
-      console.log("--------")
-      console.log("Response:"+response);
-      // Process the response as needed
+      // const response = await askgpt(input); // 使用 input 而不是 message
+      // console.log("--------")
+      // console.log("Response:"+response);
+      // // Process the response as needed
       
-      console.log("Data:"+response.data);
+      // console.log("Data:"+response.data);
+      
+      // 模拟聊天响应
+      const mockChatResponse: { data: MockChatResponseData } = {
+          data: { response: `What you said is: ${input} (This is a simulated reply, because we don't open the backedn)` }
+      };
+
       // 添加新的消息到 messages 列表
-      setMessages(prevMessages => [{ content: response.data.response, id: Date.now() }]);
+      setMessages(prevMessages => [...prevMessages, { content: mockChatResponse.data.response, id: Date.now() }]);
       setInput(''); // 清空输入框
     } catch (error) {
       console.log("}}++++++++++++")

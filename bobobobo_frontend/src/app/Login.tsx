@@ -9,7 +9,6 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import {login} from "../utils/userApi";
 import {StatusCodes} from "http-status-codes";
 import { useNavigate } from 'react-router-dom'
 import {useState} from "react";
@@ -41,15 +40,22 @@ export default function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault()
-      const data = new FormData(event.currentTarget);
-      const username = data.get('username');
-      const password = data.get('password');
-      const loginResponse = await login(
-username !== null ? username.toString() : '',
-password !== null ? password.toString() : '',
-      );
-      if (loginResponse.status === StatusCodes.OK) {
-        const token = loginResponse.data.token;
+      // const data = new FormData(event.currentTarget);
+      // const username = data.get('username');
+      // const password = data.get('password');
+      // const loginResponse = await login(
+// username !== null ? username.toString() : '',
+// password !== null ? password.toString() : '',
+//       );
+      
+      // 模拟登录成功响应
+      const mockLoginResponse = {
+          status: StatusCodes.OK,
+          data: { token: 'mock-token-123' }, // 模拟的 token
+      };
+
+      if (mockLoginResponse.status === StatusCodes.OK) {
+        const token = mockLoginResponse.data.token;
         localStorage.setItem('token', token);
         navigate('/profile');
       }

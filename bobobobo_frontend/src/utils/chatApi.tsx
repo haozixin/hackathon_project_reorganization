@@ -1,20 +1,18 @@
-
 import axios from 'axios';
 
 const baseUrl = 'http://localhost:8881/api';
 
-
 axios.defaults.baseURL = baseUrl;
 
-axios.interceptors.request.use(
-    async (config) => {
-        if (localStorage.getItem('token')) {
-            config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
-        }
-        return config;
-    },
-    (error) => Promise.reject(error),
-);
+// axios.interceptors.request.use(
+//     async (config) => {
+//         if (localStorage.getItem('token')) {
+//             config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+//         }
+//         return config;
+//     },
+//     (error) => Promise.reject(error)
+// );
 
 axios.interceptors.response.use(
     (res: any) => res,

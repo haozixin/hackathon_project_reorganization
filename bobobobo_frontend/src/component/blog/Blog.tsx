@@ -13,12 +13,15 @@ import {useNavigate} from "react-router-dom";
 import {Button} from "@mui/material";
 import {useEffect} from "react";
 import {getMoment} from "../../utils/blogApi";
+import recycleImg from '../../image/recycle.png'
+import waterImg from '../../image/water.png'
+import renewImg from '../../image/renew_ener.png'
 
 const mainFeaturedPost = {
     title: 'Renewable Energy',
     description:
         "Shifting from fossil fuels to renewable energy sources like solar, wind, and hydropower is a fundamental part of environmental sustainability. This reduces greenhouse gas emissions and lessens reliance on finite resources.",
-    image: 'https://source.unsplash.com/random?forest',
+    image: renewImg,
     imageText: 'main image description',
     linkText: 'Continue reading…',
 };
@@ -29,7 +32,7 @@ const featuredPosts = [
         date: 'Sep 12',
         description:
             'Sustainability encourages waste reduction and efficient recycling programs to divert materials from landfills and reduce pollution.',
-        image: 'https://source.unsplash.com/random?recycle',
+        image: recycleImg,
         imageLabel: 'Image Text',
     },
     {
@@ -37,7 +40,7 @@ const featuredPosts = [
         date: 'Sep 20',
         description:
             'Sustainable water management involves conserving water resources and ensuring access to clean and safe drinking water for all.',
-        image: 'https://source.unsplash.com/random?water',
+        image: waterImg,
         imageLabel: 'Image Text',
     },
 ];

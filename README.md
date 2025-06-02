@@ -1,4 +1,5 @@
 # Project Technology Stack
+(This is just a 3-days hackthon project)
 
 This project is a full-stack application with a separate backend and frontend. The backend uses the Java technology stack, and the frontend uses the React technology stack.
 
